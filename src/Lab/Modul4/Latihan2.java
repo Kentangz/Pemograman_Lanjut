@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Latihan2 {
     private String teks;
-
     private void menupilih() {
         System.out.println("=== MENU TEKS ANALYZER ===");
         System.out.println("1. Masukkan Teks");
@@ -14,7 +13,7 @@ public class Latihan2 {
         System.out.println("5. Keluar");
     }
 
-    private void pilihmenu() {
+    public void pilihmenu() {
         Scanner input = new Scanner(System.in);
         int pilih;
         boolean pilihmenupilih = true;
@@ -23,8 +22,7 @@ public class Latihan2 {
             menupilih();
             System.out.print("Pilih menu: ");
             pilih = input.nextInt();
-            input.nextLine(); // consume newline
-
+            input.nextLine();
             switch (pilih) {
                 case 1:
                     inputText(input);
@@ -50,7 +48,7 @@ public class Latihan2 {
         input.close();
     }
 
-    private void inputText(Scanner scanner) {
+    public void inputText(Scanner scanner) {
         System.out.print("Masukkan teks: ");
         String input = scanner.nextLine();
 
@@ -63,7 +61,7 @@ public class Latihan2 {
         }
     }
 
-    private void jumlahkarakter() {
+    public void jumlahkarakter() {
         if (teks != null) {
             int jumlahchar = teks.length();
             System.out.println("Jumlah karakter: " + jumlahchar);
@@ -72,7 +70,7 @@ public class Latihan2 {
         }
     }
 
-    private void jumlahkata() {
+    public void jumlahkata() {
         if (teks != null) {
             String[] kata = teks.split("\\s+");
             int jumlah = kata.length;
@@ -82,15 +80,15 @@ public class Latihan2 {
         }
     }
 
-    private void mencarikata(Scanner scanner) {
+    public void mencarikata(Scanner scanner) {
         if (teks != null) {
             System.out.print("Cari kata: ");
             String carikata = scanner.nextLine();
             boolean sama = false;
             int jumlahkataditemukan = 0;
 
-            for (String word : teks.split("\\s+")) {
-                if (word.equalsIgnoreCase(carikata)) {
+            for (String kata : teks.split("\\s+")) {
+                if (kata.equalsIgnoreCase(carikata)) {
                     sama = true;
                     jumlahkataditemukan++;
                 }
